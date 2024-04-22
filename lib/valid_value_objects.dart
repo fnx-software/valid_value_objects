@@ -1,5 +1,6 @@
 library valid_value_objects;
 
+export 'localization/l10n.dart';
 export 'src/core/value_exceptions.dart';
 export 'src/core/value_object.dart';
 export 'src/validations/email_address.dart';
