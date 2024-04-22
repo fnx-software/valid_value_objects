@@ -4,7 +4,7 @@ import 'package:valid_value_objects/valid_value_objects.dart';
 import '../core/helper.dart';
 
 @immutable
-class PhoneNumber extends ValueObject<String> {
+class PhoneNumberInput extends ValueObject<String> {
   /// Default value: `phone`
   static String key = 'phone';
 
@@ -21,50 +21,50 @@ class PhoneNumber extends ValueObject<String> {
 
   /// Define your own [customValidator] if you are dissatisfied with [_defaultValidator].
   ///
-  /// If you set [validation] other than `null` [PhoneNumber] instantiation
-  /// and [PhoneNumber.validate] function will validate by your custom [validation].
+  /// If you set [validation] other than `null` [PhoneNumberInput] instantiation
+  /// and [PhoneNumberInput.validate] function will validate by your custom [validation].
   static ValidCallback? customValidator;
 
   /// Validates [str] by [_defaultValidator] or [customValidator].
   static bool validate(String str) => customValidator?.call(str) ?? _defaultValidator(str);
 
-  /// Returns a valid [PhoneNumber] object.
+  /// Returns a valid [PhoneNumberInput] object.
   ///
   /// Throws [ValueException]:
   /// - [RequiredValueException] if [str] is null or empty.
   /// - [InvalidValueException] if [str] is not a valid phone number.
-  factory PhoneNumber(String? str) {
+  factory PhoneNumberInput(String? str) {
     if (str == null || str.isEmpty) {
       throw const RequiredValueException();
     }
 
     if (validate(str)) {
-      return PhoneNumber._(str);
+      return PhoneNumberInput._(str);
     }
 
     throw InvalidValueException(str, customMessage: '${ValueObjectLocalizationsImpl.current.phoneInvalid}.');
   }
 
-  const PhoneNumber._(super.value);
+  const PhoneNumberInput._(super.value);
 
-  /// Returns a valid [PhoneNumber] object.
+  /// Returns a valid [PhoneNumberInput] object.
   ///
   /// Throws [InvalidValueException] if [vo] is not a valid phone number.
-  factory PhoneNumber.fromValueObject(ValueObject vo) {
-    return PhoneNumber(vo.toString());
+  factory PhoneNumberInput.fromValueObject(ValueObject vo) {
+    return PhoneNumberInput(vo.toString());
   }
 
-  /// Returns a valid [PhoneNumber] object.
+  /// Returns a valid [PhoneNumberInput] object.
   ///
-  /// If [key] is `null` [PhoneNumber.key] is used to get it's corresponding value in [map].
+  /// If [key] is `null` [PhoneNumberInput.key] is used to get it's corresponding value in [map].
   ///
   /// Throws [InvalidValueException] if [map]'s value is not a valid phone number.
-  factory PhoneNumber.fromJson(Map<String, dynamic> map, {String? key}) {
+  factory PhoneNumberInput.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
-    final value = flatMap[key ?? PhoneNumber.key].toString();
+    final value = flatMap[key ?? PhoneNumberInput.key].toString();
 
-    return PhoneNumber(value);
+    return PhoneNumberInput(value);
   }
 
-  Map<String, String> toJson({String? key}) => {key ?? PhoneNumber.key: toString()};
+  Map<String, String> toJson({String? key}) => {key ?? PhoneNumberInput.key: toString()};
 }

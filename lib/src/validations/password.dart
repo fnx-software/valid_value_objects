@@ -2,7 +2,7 @@ import 'package:valid_value_objects/valid_value_objects.dart';
 
 import '../core/helper.dart';
 
-class Password extends ValueObject<String> {
+class PasswordInput extends ValueObject<String> {
   /// Default value: `password`
   static String key = 'password';
 
@@ -14,7 +14,7 @@ class Password extends ValueObject<String> {
   static bool mustContainUpperChar = true;
   static bool mustContainSpecialChar = false;
 
-  /// Returns a valid [Password] object.
+  /// Returns a valid [PasswordInput] object.
   ///
   /// Throws [ValueException]:
   ///
@@ -22,47 +22,47 @@ class Password extends ValueObject<String> {
   /// - [TooShortValueException] if [str] has too few characters.
   /// - [TooLongValueException] if [str] has too many characters.
   /// - [InvalidValueException] if [str] is invalid.
-  factory Password(String? str) {
+  factory PasswordInput(String? str) {
     if (str == null || str.isEmpty) {
       throw const RequiredValueException();
     } else if (str.length < minChar) {
       throw TooShortValueException(str);
     } else if (str.length > maxChar) {
       throw TooLongValueException(str);
-    } else if (Password.mustContainLowerChar && !hasLowerChar(str)) {
+    } else if (PasswordInput.mustContainLowerChar && !hasLowerChar(str)) {
       throw InvalidValueException(
         str,
         code: ErrorCode.mustContainLower,
       );
-    } else if (Password.mustContainUpperChar && !hasUpperChar(str)) {
+    } else if (PasswordInput.mustContainUpperChar && !hasUpperChar(str)) {
       throw InvalidValueException(
         str,
         code: ErrorCode.mustContainUpper,
       );
-    } else if (Password.mustContainNumeric && !hasNumeric(str)) {
+    } else if (PasswordInput.mustContainNumeric && !hasNumeric(str)) {
       throw InvalidValueException(
         str,
         code: ErrorCode.mustContainNumber,
       );
-    } else if (Password.mustContainSpecialChar && !hasSpecialChar(str)) {
+    } else if (PasswordInput.mustContainSpecialChar && !hasSpecialChar(str)) {
       throw InvalidValueException(
         str,
         code: ErrorCode.mustHaveSpecial,
       );
     }
 
-    return Password._(str);
+    return PasswordInput._(str);
   }
 
-  const Password._(super.value);
+  const PasswordInput._(super.value);
 
   /// One of the following [ValueException] maybe thrown:
   /// - RequiredValueException
   /// - TooShortValueException
   /// - TooLongValueException
   /// - InvalidValueException
-  factory Password.fromValueObject(ValueObject vo) {
-    return Password(vo.toString());
+  factory PasswordInput.fromValueObject(ValueObject vo) {
+    return PasswordInput(vo.toString());
   }
 
   /// One of the following [ValueException] maybe thrown:
@@ -70,14 +70,14 @@ class Password extends ValueObject<String> {
   /// - TooShortValueException
   /// - TooLongValueException
   /// - InvalidValueException
-  factory Password.fromJson(Map<String, dynamic> map, {String? key}) {
+  factory PasswordInput.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
-    final value = flatMap[key ?? Password.key].toString();
+    final value = flatMap[key ?? PasswordInput.key].toString();
 
-    return Password(value);
+    return PasswordInput(value);
   }
 
-  Map<String, String> toJson({String? key}) => {key ?? Password.key: toString()};
+  Map<String, String> toJson({String? key}) => {key ?? PasswordInput.key: toString()};
 
   static void setRequirements({
     int minChar = 6,
@@ -87,11 +87,11 @@ class Password extends ValueObject<String> {
     bool mustContainNumeric = true,
     bool mustContainSpecialChar = false,
   }) {
-    Password.minChar = minChar;
-    Password.maxChar = maxChar;
-    Password.mustContainLowerChar = mustContainLowerChar;
-    Password.mustContainUpperChar = mustContainUpperChar;
-    Password.mustContainNumeric = mustContainUpperChar;
-    Password.mustContainSpecialChar = mustContainSpecialChar;
+    PasswordInput.minChar = minChar;
+    PasswordInput.maxChar = maxChar;
+    PasswordInput.mustContainLowerChar = mustContainLowerChar;
+    PasswordInput.mustContainUpperChar = mustContainUpperChar;
+    PasswordInput.mustContainNumeric = mustContainUpperChar;
+    PasswordInput.mustContainSpecialChar = mustContainSpecialChar;
   }
 }

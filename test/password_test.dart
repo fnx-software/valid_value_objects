@@ -2,40 +2,40 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:valid_value_objects/valid_value_objects.dart';
 
 void main() {
-  Password.maxChar = 10;
+  PasswordInput.maxChar = 10;
 
   test('Null & empty', () {
-    expect(() => Password(''), throwsA(isA<RequiredValueException>()));
+    expect(() => PasswordInput(''), throwsA(isA<RequiredValueException>()));
   });
 
   test('Too short', () {
-    expect(() => Password('sd'), throwsA(isA<TooShortValueException>()));
-    expect(() => Password('dsfA1'), throwsA(isA<TooShortValueException>()));
+    expect(() => PasswordInput('sd'), throwsA(isA<TooShortValueException>()));
+    expect(() => PasswordInput('dsfA1'), throwsA(isA<TooShortValueException>()));
   });
 
   test('Too long', () {
-    expect(() => Password('sd14X47sad4'), throwsA(isA<TooLongValueException>()));
-    expect(() => Password('ASkxckAJmxk58A&#'), throwsA(isA<TooLongValueException>()));
+    expect(() => PasswordInput('sd14X47sad4'), throwsA(isA<TooLongValueException>()));
+    expect(() => PasswordInput('ASkxckAJmxk58A&#'), throwsA(isA<TooLongValueException>()));
   });
 
   test('Valid', () {
-    expect(Password('124Xy4Ad'), isA<Password>());
+    expect(PasswordInput('124Xy4Ad'), isA<PasswordInput>());
   });
 
   test('Invalid no upper char', () {
-    expect(() => Password('124xy4ad'), throwsA(isA<InvalidValueException>()));
+    expect(() => PasswordInput('124xy4ad'), throwsA(isA<InvalidValueException>()));
   });
 
   test('Invalid no lower char', () {
-    expect(() => Password('124XY4AD'), throwsA(isA<InvalidValueException>()));
+    expect(() => PasswordInput('124XY4AD'), throwsA(isA<InvalidValueException>()));
   });
 
   test('Invalid no numeric char', () {
-    expect(() => Password('vk&xypjd'), throwsA(isA<InvalidValueException>()));
+    expect(() => PasswordInput('vk&xypjd'), throwsA(isA<InvalidValueException>()));
   });
 
   test('Changed requirements', () {
-    Password.setRequirements(
+    PasswordInput.setRequirements(
       minChar: 1,
       maxChar: 4,
       mustContainLowerChar: false,
@@ -43,6 +43,6 @@ void main() {
       mustContainUpperChar: false,
     );
 
-    expect(Password('sds'), isA<Password>());
+    expect(PasswordInput('sds'), isA<PasswordInput>());
   });
 }

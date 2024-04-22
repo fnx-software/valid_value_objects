@@ -2,161 +2,161 @@ import 'package:valid_value_objects/valid_value_objects.dart';
 
 import '../core/helper.dart';
 
-class FirstName extends Name {
+class FirstNameInput extends NameInput {
   /// Default value: `fistName`
   static String key = 'firstName';
 
   /// Define your own [customValidator] if you are dissatisfied with [_defaultValidator].
   ///
-  /// If you set [validation] other than `null` [FirstName] instantiation
-  /// and [FirstName.validate] function will validate by your custom [validation].
+  /// If you set [validation] other than `null` [FirstNameInput] instantiation
+  /// and [FirstNameInput.validate] function will validate by your custom [validation].
   static ValidCallback? customValidator;
 
   // Validates [str] by [_defaultValidator] or [customValidator].
   static bool validate(String str) => customValidator?.call(str) ?? _defaultValidator(str);
 
-  /// Returns a valid [FirstName] object.
+  /// Returns a valid [FirstNameInput] object.
   ///
   /// Throws [ValueException]:
   /// - [RequiredValueException] if [str] is null or empty.
   /// - [InvalidValueException] if [str] is not a valid first name.
-  factory FirstName(String? str) {
+  factory FirstNameInput(String? str) {
     if (str == null || str.isEmpty) {
       throw const RequiredValueException();
     } else if (!validate(str)) {
       throw InvalidValueException(str);
     }
-    return FirstName._(str);
+    return FirstNameInput._(str);
   }
 
-  FirstName._(super.value);
+  FirstNameInput._(super.value);
 
-  /// Returns a valid [FirstName] object.
+  /// Returns a valid [FirstNameInput] object.
   ///
   /// Throws [InvalidValueException] if [vo] is not a valid first name.
-  factory FirstName.fromValueObject(ValueObject vo) {
-    return FirstName(vo.toString());
+  factory FirstNameInput.fromValueObject(ValueObject vo) {
+    return FirstNameInput(vo.toString());
   }
 
-  /// Returns a valid [FirstName] object.
+  /// Returns a valid [FirstNameInput] object.
   ///
-  /// If [key] is `null` [FirstName.key] is used to get it's corresponding value in [map].
+  /// If [key] is `null` [FirstNameInput.key] is used to get it's corresponding value in [map].
   ///
   /// Throws [InvalidValueException] if [map]'s value is not a valid first name.
-  factory FirstName.fromJson(Map<String, dynamic> map, {String? key}) {
+  factory FirstNameInput.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
     final value = flatMap[key ?? EmailAddressInput.key].toString();
 
-    return FirstName(value);
+    return FirstNameInput(value);
   }
 
-  Map<String, String> toJson({String? key}) => {key ?? FirstName.key: toString()};
+  Map<String, String> toJson({String? key}) => {key ?? FirstNameInput.key: toString()};
 }
 
-class LastName extends Name {
+class LastNameInput extends NameInput {
   /// Default value: `lastName`
   static String key = 'lastName';
 
   /// Define your own [customValidator] if you are dissatisfied with [_defaultValidator].
   ///
-  /// If you set [validation] other than `null` [LastName] instantiation
-  /// and [LastName.validate] function will validate by your custom [validation].
+  /// If you set [validation] other than `null` [LastNameInput] instantiation
+  /// and [LastNameInput.validate] function will validate by your custom [validation].
   static ValidCallback? customValidator;
 
   /// Validates [str] by [_defaultValidator] or [customValidator].
   static bool validate(String str) => customValidator?.call(str) ?? _defaultValidator(str);
 
-  /// Returns a valid [LastName] object.
+  /// Returns a valid [LastNameInput] object.
   ///
   /// Throws [ValueException]:
   /// - [RequiredValueException] if [str] is null or empty.
   /// - [InvalidValueException] if [str] is not a valid last name.
-  factory LastName(String? str) {
+  factory LastNameInput(String? str) {
     if (str == null || str.isEmpty) {
       throw const RequiredValueException();
     } else if (!validate(str)) {
       throw InvalidValueException(str);
     }
-    return LastName._(str);
+    return LastNameInput._(str);
   }
 
-  LastName._(super.value);
+  LastNameInput._(super.value);
 
-  /// Returns a valid [LastName] object.
+  /// Returns a valid [LastNameInput] object.
   ///
   /// Throws [InvalidValueException] if [vo] is not a valid last name.
-  factory LastName.fromValueObject(ValueObject vo) {
-    return LastName(vo.toString());
+  factory LastNameInput.fromValueObject(ValueObject vo) {
+    return LastNameInput(vo.toString());
   }
 
-  /// Returns a valid [LastName] object.
+  /// Returns a valid [LastNameInput] object.
   ///
-  /// If [key] is `null` [LastName.key] is used to get it's corresponding value in [map].
+  /// If [key] is `null` [LastNameInput.key] is used to get it's corresponding value in [map].
   ///
   /// Throws [InvalidValueException] if [map]'s value is not a valid last name.
-  factory LastName.fromJson(Map<String, dynamic> map, {String? key}) {
+  factory LastNameInput.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
-    final value = flatMap[key ?? LastName.key].toString();
+    final value = flatMap[key ?? LastNameInput.key].toString();
 
-    return LastName(value);
+    return LastNameInput(value);
   }
 
-  Map<String, String> toJson({String? key}) => {key ?? LastName.key: toString()};
+  Map<String, String> toJson({String? key}) => {key ?? LastNameInput.key: toString()};
 }
 
-class MiddleName extends Name {
+class MiddleNameInput extends NameInput {
   /// Default value: `middleName`
   static String key = 'middleName';
 
   /// Define your own [customValidator] if you are dissatisfied with [_defaultValidator].
   ///
-  /// If you set [validation] other than `null` [MiddleName] instantiation
-  /// and [MiddleName.validate] function will validate by your custom [validation].
+  /// If you set [validation] other than `null` [MiddleNameInput] instantiation
+  /// and [MiddleNameInput.validate] function will validate by your custom [validation].
   static ValidCallback? customValidator;
 
   /// Validates [str] by [_defaultValidator] or [customValidator].
   static bool validate(String str) => customValidator?.call(str) ?? _defaultValidator(str);
 
-  /// Returns a valid [MiddleName] object.
+  /// Returns a valid [MiddleNameInput] object.
   ///
   /// Throws [ValueException]:
   /// - [RequiredValueException] if [str] is null or empty.
   /// - [InvalidValueException] if [str] is not a valid middle name.
-  factory MiddleName(String? str) {
+  factory MiddleNameInput(String? str) {
     if (str == null || str.isEmpty) {
       throw const RequiredValueException();
     } else if (!validate(str)) {
       throw InvalidValueException(str);
     }
-    return MiddleName._(str);
+    return MiddleNameInput._(str);
   }
 
-  MiddleName._(super.value);
+  MiddleNameInput._(super.value);
 
-  /// Returns a valid [MiddleName] object.
+  /// Returns a valid [MiddleNameInput] object.
   ///
   /// Throws [InvalidValueException] if [vo] is not a valid middle name.
-  factory MiddleName.fromValueObject(ValueObject vo) {
-    return MiddleName(vo.toString());
+  factory MiddleNameInput.fromValueObject(ValueObject vo) {
+    return MiddleNameInput(vo.toString());
   }
 
-  /// Returns a valid [MiddleName] object.
+  /// Returns a valid [MiddleNameInput] object.
   ///
-  /// If [key] is `null` [MiddleName.key] is used to get it's corresponding value in [map].
+  /// If [key] is `null` [MiddleNameInput.key] is used to get it's corresponding value in [map].
   ///
   /// Throws [InvalidValueException] if [map]'s value is not a valid middle name.
-  factory MiddleName.fromJson(Map<String, dynamic> map, {String? key}) {
+  factory MiddleNameInput.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
-    final value = flatMap[key ?? MiddleName.key].toString();
+    final value = flatMap[key ?? MiddleNameInput.key].toString();
 
-    return MiddleName(value);
+    return MiddleNameInput(value);
   }
 
-  Map<String, String> toJson({String? key}) => {key ?? MiddleName.key: toString()};
+  Map<String, String> toJson({String? key}) => {key ?? MiddleNameInput.key: toString()};
 }
 
-abstract class Name extends ValueObject<String> {
-  Name(String value) : super(capitalizeFirstLetter(value));
+abstract class NameInput extends ValueObject<String> {
+  NameInput(String value) : super(capitalizeFirstLetter(value));
 }
 
 bool _defaultValidator(String str) {

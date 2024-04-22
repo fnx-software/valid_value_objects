@@ -9,10 +9,10 @@ part of 'example.dart';
 User2 _$User2FromJson(Map<String, dynamic> json) {
   return User2(
     UniqueId.fromJson(json['userId']),
-    PhoneNumber.fromJson(json['phone']),
+    PhoneNumberInput.fromJson(json['phone']),
     EmailAddressInput.fromJson(json['email']),
-    FirstName.fromJson(json['firstName']),
-    LastName.fromJson(json['lastName']),
+    FirstNameInput.fromJson(json['firstName']),
+    LastNameInput.fromJson(json['lastName']),
   );
 }
 

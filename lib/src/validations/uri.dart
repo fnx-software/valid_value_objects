@@ -2,16 +2,16 @@ import 'package:valid_value_objects/valid_value_objects.dart';
 
 import '../core/helper.dart';
 
-class URI extends ValueObject<Uri> {
+class URIInput extends ValueObject<Uri> {
   /// Default value: `uri`
   static String key = 'uri';
 
-  /// Returns a valid [URI] object.
+  /// Returns a valid [URIInput] object.
   ///
   /// Throws [ValueException]:
   /// - [RequiredValueException] if [str] is null or empty.
-  /// - [InvalidValueException] if [str] is not a valid URI.
-  factory URI(String? str, {bool mustBeAbsolute = false}) {
+  /// - [InvalidValueException] if [str] is not a valid URIInput.
+  factory URIInput(String? str, {bool mustBeAbsolute = false}) {
     if (str == null || str.isEmpty) {
       throw const RequiredValueException();
     }
@@ -25,22 +25,22 @@ class URI extends ValueObject<Uri> {
     if (mustBeAbsolute && !uri.isAbsolute) {
       throw InvalidValueException(str, customMessage: '${ValueObjectLocalizationsImpl.current.uriInvalid}.');
     }
-    return URI._(uri);
+    return URIInput._(uri);
   }
 
-  const URI._(super.uri);
+  const URIInput._(super.uri);
 
-  /// Returns a valid [URI] object.
+  /// Returns a valid [URIInput] object.
   ///
-  /// If [key] is `null` [URI.key] is used to get it's corresponding value in [map].
+  /// If [key] is `null` [URIInput.key] is used to get it's corresponding value in [map].
   ///
-  /// Throws [InvalidValueException] if [map]'s value is not a valid URI.
-  factory URI.fromJson(Map<String, dynamic> map, {String? key}) {
+  /// Throws [InvalidValueException] if [map]'s value is not a valid URIInput.
+  factory URIInput.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
-    final value = flatMap[key ?? URI.key].toString();
+    final value = flatMap[key ?? URIInput.key].toString();
 
-    return URI(value);
+    return URIInput(value);
   }
 
-  Map<String, String> toJson({String? key}) => {key ?? URI.key: super.toString()};
+  Map<String, String> toJson({String? key}) => {key ?? URIInput.key: super.toString()};
 }

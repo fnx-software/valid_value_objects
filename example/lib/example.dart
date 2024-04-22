@@ -27,19 +27,19 @@ const nestedUserMap = {
 
 class User {
   final UniqueId userId;
-  PhoneNumber phone;
+  PhoneNumberInput phone;
   EmailAddressInput email;
-  FirstName firstName;
-  LastName lastName;
+  FirstNameInput firstName;
+  LastNameInput lastName;
 
   User(this.userId, this.phone, this.email, this.firstName, this.lastName);
 
   factory User.fromJson(Map<String, dynamic> json) {
     final id = UniqueId.fromJson(json);
-    final phone = PhoneNumber.fromJson(json);
+    final phone = PhoneNumberInput.fromJson(json);
     final email = EmailAddressInput.fromJson(json);
-    final fn = FirstName.fromJson(json);
-    final ln = LastName.fromJson(json);
+    final fn = FirstNameInput.fromJson(json);
+    final ln = LastNameInput.fromJson(json);
 
     return User(id, phone, email, fn, ln);
   }
@@ -47,10 +47,10 @@ class User {
   Map<String, dynamic> toJson() {
     return {
       UniqueId.key: userId,
-      PhoneNumber.key: phone,
+      PhoneNumberInput.key: phone,
       EmailAddressInput.key: email,
-      FirstName.key: firstName,
-      LastName.key: lastName,
+      FirstNameInput.key: firstName,
+      LastNameInput.key: lastName,
     };
   }
 }
@@ -59,10 +59,10 @@ class User {
 @JsonSerializable()
 class User2 {
   final UniqueId userId;
-  PhoneNumber phone;
+  PhoneNumberInput phone;
   EmailAddressInput email;
-  FirstName firstName;
-  LastName lastName;
+  FirstNameInput firstName;
+  LastNameInput lastName;
 
   User2(this.userId, this.phone, this.email, this.firstName, this.lastName);
 
