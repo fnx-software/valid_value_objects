@@ -13,7 +13,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  intl_utils: any
   # Utils
   meta: any
   string_validator: any
@@ -24,3 +27,10 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 flutter:
+  generate: true
+flutter_intl:
+  enabled: true
+  class_name: ValueObjectLocalizationsImpl
+  main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/localization

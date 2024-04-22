@@ -1,5 +1,6 @@
-import 'helper.dart';
-import 'value_object.dart';
+import 'package:valid_value_objects/valid_value_objects.dart';
+
+import '../core/helper.dart';
 
 /// Generates a unique id:
 ///

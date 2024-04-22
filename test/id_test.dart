@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:valid_value_objects/src/id.dart';
+import 'package:valid_value_objects/src/validations/id.dart';
 
 void main() {
   test('UniqueId', () {

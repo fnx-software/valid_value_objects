@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:valid_value_objects/src/helper.dart';
+import 'package:valid_value_objects/src/core/helper.dart';
 
 void main() {
   const sample = {

@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "valueRequired":  "Value must be required",
+  "valueInvalid":  "Invalid value'",
+  "valueShort":  "Value is too short",
+  "valueLong":  "Value is too long",
+  "emailInvalid":  "Invalid email address",
+  "ipInvalid":  "is not a valid IP address",
+  "isbnInvalid":  "Invalid ISBN number",
+  "uriInvalid":  "URI must be absolute",
+  "phoneInvalid":  "Invalid phone number",
+  "passwordLower":  "Password must contain a lower case letter",
+  "passwordUpper":  "Password must contain an upper case letter",
+  "passwordNumber":  "Password must contain a number",
+  "passwordSpecialCharacter":  "Password must contain a special character"
+}

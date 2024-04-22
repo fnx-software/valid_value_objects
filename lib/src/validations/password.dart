@@ -1,6 +1,6 @@
-import '../src/helper.dart';
-import '../src/value_exceptions.dart';
-import '../src/value_object.dart';
+import 'package:valid_value_objects/valid_value_objects.dart';
+
+import '../core/helper.dart';
 
 class Password extends ValueObject<String> {
   /// Default value: `password`
@@ -32,26 +32,22 @@ class Password extends ValueObject<String> {
     } else if (Password.mustContainLowerChar && !hasLowerChar(str)) {
       throw InvalidValueException(
         str,
-        code: 'must-contain-lower',
-        message: 'Password must contain a lower case letter.',
+        code: ErrorCode.mustContainLower,
       );
     } else if (Password.mustContainUpperChar && !hasUpperChar(str)) {
       throw InvalidValueException(
         str,
-        code: 'must-contain-upper',
-        message: 'Password must contain an upper case letter.',
+        code: ErrorCode.mustContainUpper,
       );
     } else if (Password.mustContainNumeric && !hasNumeric(str)) {
       throw InvalidValueException(
         str,
-        code: 'must-contain-number',
-        message: 'Password must contain a number.',
+        code: ErrorCode.mustContainNumber,
       );
     } else if (Password.mustContainSpecialChar && !hasSpecialChar(str)) {
       throw InvalidValueException(
         str,
-        code: 'must-have-special',
-        message: 'Password must contain a special character.',
+        code: ErrorCode.mustHaveSpecial,
       );
     }
 

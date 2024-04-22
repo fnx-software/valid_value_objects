@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:valid_value_objects/src/email_address.dart';
-import 'package:valid_value_objects/src/value_exceptions.dart';
+import 'package:valid_value_objects/src/core/value_exceptions.dart';
+import 'package:valid_value_objects/src/validations/email_address.dart';
 
 void main() {
   test('Null & empty', () {

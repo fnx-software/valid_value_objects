@@ -1,7 +1,8 @@
 import 'package:meta/meta.dart';
+import 'package:valid_value_objects/localization/l10n.dart';
 import 'package:valid_value_objects/valid_value_objects.dart';
 
-import '../src/helper.dart';
+import '../core/helper.dart';
 
 @immutable
 class PhoneNumber extends ValueObject<String> {
@@ -42,7 +43,7 @@ class PhoneNumber extends ValueObject<String> {
       return PhoneNumber._(str);
     }
 
-    throw InvalidValueException(str, message: 'Invalid phone number.');
+    throw InvalidValueException(str, customMessage: '${ValueObjectLocalizationsImpl.current.phoneInvalid}.');
   }
 
   const PhoneNumber._(super.value);

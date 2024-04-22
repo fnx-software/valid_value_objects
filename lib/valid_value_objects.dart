@@ -1,11 +1,11 @@
 library valid_value_objects;
 
-export 'src/email_address.dart';
-export 'src/id.dart';
-export 'src/ip.dart';
-export 'src/isbn.dart';
-export 'src/name.dart';
-export 'src/password.dart';
-export 'src/phone_number.dart';
-export 'src/value_exceptions.dart';
-export 'src/value_object.dart';
+export 'src/core/value_exceptions.dart';
+export 'src/core/value_object.dart';
+export 'src/validations/email_address.dart';
+export 'src/validations/id.dart';
+export 'src/validations/ip.dart';
+export 'src/validations/isbn.dart';
+export 'src/validations/name.dart';
+export 'src/validations/password.dart';
+export 'src/validations/phone_number.dart';

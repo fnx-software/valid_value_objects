@@ -1,8 +1,8 @@
 import 'package:string_validator/string_validator.dart';
+import 'package:valid_value_objects/localization/l10n.dart';
+import 'package:valid_value_objects/valid_value_objects.dart';
 
-import '../src/helper.dart';
-import '../src/value_exceptions.dart';
-import '../src/value_object.dart';
+import '../core/helper.dart';
 
 class EmailAddress extends ValueObject<String> {
   /// Default value: `email`
@@ -33,7 +33,7 @@ class EmailAddress extends ValueObject<String> {
       return EmailAddress._(str);
     }
 
-    throw InvalidValueException(str, message: 'Invalid email address.');
+    throw InvalidValueException(str, customMessage: '${ValueObjectLocalizationsImpl.current.emailInvalid}.');
   }
 
   /// Returns the local part of `this` EmailAddress instance.

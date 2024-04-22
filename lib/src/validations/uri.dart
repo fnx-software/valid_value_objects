@@ -1,6 +1,7 @@
-import 'helper.dart';
-import 'value_exceptions.dart';
-import 'value_object.dart';
+import 'package:valid_value_objects/localization/l10n.dart';
+import 'package:valid_value_objects/valid_value_objects.dart';
+
+import '../core/helper.dart';
 
 class URI extends ValueObject<Uri> {
   /// Default value: `uri`
@@ -19,11 +20,11 @@ class URI extends ValueObject<Uri> {
     try {
       uri = Uri.parse(str);
     } on FormatException catch (e) {
-      throw InvalidValueException(str, message: e.message);
+      throw InvalidValueException(str, customMessage: e.message);
     }
 
     if (mustBeAbsolute && !uri.isAbsolute) {
-      throw InvalidValueException(str, message: 'URI must be absolute.');
+      throw InvalidValueException(str, customMessage: '${ValueObjectLocalizationsImpl.current.uriInvalid}.');
     }
     return URI._(uri);
   }

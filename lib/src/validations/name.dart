@@ -1,5 +1,6 @@
-import '../src/helper.dart';
-import '../valid_value_objects.dart';
+import 'package:valid_value_objects/valid_value_objects.dart';
+
+import '../core/helper.dart';
 
 class FirstName extends Name {
   /// Default value: `fistName`

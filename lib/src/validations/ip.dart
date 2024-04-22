@@ -1,8 +1,9 @@
 import 'package:string_validator/string_validator.dart';
+import 'package:valid_value_objects/localization/l10n.dart';
 
-import '../src/helper.dart';
-import '../src/value_exceptions.dart';
-import '../src/value_object.dart';
+import '../core/helper.dart';
+import '../core/value_exceptions.dart';
+import '../core/value_object.dart';
 
 enum IPVersion { v4, v6 }
 
@@ -31,7 +32,7 @@ class IPAddress extends ValueObject<String> {
 
     throw InvalidValueException(
       str,
-      message: '$str is not a valid IP address',
+      customMessage: '$str ${ValueObjectLocalizationsImpl.current.ipInvalid}',
     );
   }
 

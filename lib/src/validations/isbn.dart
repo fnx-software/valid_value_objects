@@ -1,8 +1,8 @@
 import 'package:string_validator/string_validator.dart';
+import 'package:valid_value_objects/localization/l10n.dart';
+import 'package:valid_value_objects/valid_value_objects.dart';
 
-import '../src/helper.dart';
-import '../src/value_exceptions.dart';
-import '../src/value_object.dart';
+import '../core/helper.dart';
 
 enum ISBNVersion { v10, v13 }
 
@@ -26,7 +26,7 @@ class ISBN extends ValueObject<String> {
     } else if (isISBN(str, '13')) {
       return ISBN._(str, ISBNVersion.v13);
     }
-    throw InvalidValueException(str, message: 'Invalid ISBN number.');
+    throw InvalidValueException(str, customMessage: '${ValueObjectLocalizationsImpl.current.isbnInvalid}.');
   }
 
   const ISBN._(super.value, this.version);
