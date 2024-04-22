@@ -1,0 +1,18 @@
+name: example
+description: Contains an example for valid_value_object library.
+version: 1.0.0
+
+environment:
+  sdk: '>=2.12.0-0 <3.0.0'
+  
+publish_to: none
+
+dependencies:
+  json_annotation: any
+  valid_value_objects:
+    path: ../
+
+dev_dependencies:
+  json_serializable: any
+  build_runner: any
+  flutter_lints: any

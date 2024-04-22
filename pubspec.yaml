@@ -1,0 +1,26 @@
+name: valid_value_objects
+description: "Dart package to create immutable validated value objects with the benefit of type safety and code readability."
+version: 0.4.0
+homepage: https://github.com/mstfkhazaal/valid_value_object
+repository: https://github.com/mstfkhazaal/valid_value_object
+issue_tracker: https://github.com/mstfkhazaal/valid_value_object/issues
+documentation: https://github.com/mstfkhazaal/valid_value_object
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Utils
+  meta: any
+  string_validator: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
