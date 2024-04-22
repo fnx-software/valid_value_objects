@@ -1,4 +1,3 @@
-import 'package:valid_value_objects/localization/l10n.dart';
 import 'package:valid_value_objects/valid_value_objects.dart';
 
 import '../core/helper.dart';

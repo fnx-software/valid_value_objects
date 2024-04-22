@@ -4,51 +4,51 @@ import 'package:valid_value_objects/src/validations/email_address.dart';
 
 void main() {
   test('Null & empty', () {
-    expect(() => EmailAddress(''), throwsA(isA<RequiredValueException>()));
+    expect(() => EmailAddressInput(''), throwsA(isA<RequiredValueException>()));
   });
 
   test('Valid', () {
-    expect(EmailAddress('xy@gmail.com'), isA<EmailAddress>());
-    expect(EmailAddress('xy@gmail.com'), isA<EmailAddress>());
+    expect(EmailAddressInput('xy@gmail.com'), isA<EmailAddressInput>());
+    expect(EmailAddressInput('xy@gmail.com'), isA<EmailAddressInput>());
   });
 
   test('fromJson & toJson', () {
-    final email = EmailAddress.fromJson(const {'email': 'xy@gmail.com'});
+    final email = EmailAddressInput.fromJson(const {'email': 'xy@gmail.com'});
     expect(email.toString(), 'xy@gmail.com');
 
-    final email2 = EmailAddress.fromJson(const {'password': 'jdkJAkxc4', 'email': 'xy@gmail.com'});
+    final email2 = EmailAddressInput.fromJson(const {'password': 'jdkJAkxc4', 'email': 'xy@gmail.com'});
     expect(email2.toString(), 'xy@gmail.com');
 
     expect(email.toJson().toString(), '{email: xy@gmail.com}');
 
-    EmailAddress.key = 'em';
+    EmailAddressInput.key = 'em';
     expect(email2.toJson().toString(), '{em: xy@gmail.com}');
 
     expect(
-      () => EmailAddress(null),
+      () => EmailAddressInput(null),
       throwsA(isA<RequiredValueException>()),
     );
 
     expect(
-      () => EmailAddress.fromJson(const {'em': null}),
+      () => EmailAddressInput.fromJson(const {'em': null}),
       throwsA(isA<InvalidValueException>()),
     );
 
     expect(
-      () => EmailAddress.fromJson(const {'em': 10}),
+      () => EmailAddressInput.fromJson(const {'em': 10}),
       throwsA(isA<InvalidValueException>()),
     );
 
     expect(
-      () => EmailAddress.fromJson(const {'qq': 'xy@gmail.com'}),
+      () => EmailAddressInput.fromJson(const {'qq': 'xy@gmail.com'}),
       throwsA(isA<InvalidValueException>()),
     );
   });
 
   test('Custom regex', () {
-    EmailAddress.customValidator = (str) => str.contains('@');
-    expect(EmailAddress('x@y'), isA<EmailAddress>());
-    expect(() => EmailAddress('xy'), throwsA(isA<InvalidValueException>()));
-    expect(() => EmailAddress(''), throwsA(isA<RequiredValueException>()));
+    EmailAddressInput.customValidator = (str) => str.contains('@');
+    expect(EmailAddressInput('x@y'), isA<EmailAddressInput>());
+    expect(() => EmailAddressInput('xy'), throwsA(isA<InvalidValueException>()));
+    expect(() => EmailAddressInput(''), throwsA(isA<RequiredValueException>()));
   });
 }
