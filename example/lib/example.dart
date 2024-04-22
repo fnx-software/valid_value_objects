@@ -28,7 +28,7 @@ const nestedUserMap = {
 class User {
   final UniqueId userId;
   PhoneNumber phone;
-  EmailAddress email;
+  EmailAddressInput email;
   FirstName firstName;
   LastName lastName;
 
@@ -37,7 +37,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     final id = UniqueId.fromJson(json);
     final phone = PhoneNumber.fromJson(json);
-    final email = EmailAddress.fromJson(json);
+    final email = EmailAddressInput.fromJson(json);
     final fn = FirstName.fromJson(json);
     final ln = LastName.fromJson(json);
 
@@ -48,7 +48,7 @@ class User {
     return {
       UniqueId.key: userId,
       PhoneNumber.key: phone,
-      EmailAddress.key: email,
+      EmailAddressInput.key: email,
       FirstName.key: firstName,
       LastName.key: lastName,
     };
@@ -60,7 +60,7 @@ class User {
 class User2 {
   final UniqueId userId;
   PhoneNumber phone;
-  EmailAddress email;
+  EmailAddressInput email;
   FirstName firstName;
   LastName lastName;
 
@@ -88,15 +88,15 @@ void main() {
   // Custom validator example:
   const sampleEmail = 'xy@gmail';
   try {
-    EmailAddress(sampleEmail);
+    EmailAddressInput(sampleEmail);
   } on ValueException {
     log('This is an invalid email address (will be printed)');
   }
 
-  EmailAddress.customValidator = (str) => str.contains('@');
+  EmailAddressInput.customValidator = (str) => str.contains('@');
 
   try {
-    EmailAddress(sampleEmail);
+    EmailAddressInput(sampleEmail);
   } on ValueException {
     log('This is now a valid email address (will NOT be printed)');
   }

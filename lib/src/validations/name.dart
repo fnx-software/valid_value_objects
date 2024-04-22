@@ -45,7 +45,7 @@ class FirstName extends Name {
   /// Throws [InvalidValueException] if [map]'s value is not a valid first name.
   factory FirstName.fromJson(Map<String, dynamic> map, {String? key}) {
     final flatMap = flattenMap(map);
-    final value = flatMap[key ?? EmailAddress.key].toString();
+    final value = flatMap[key ?? EmailAddressInput.key].toString();
 
     return FirstName(value);
   }
